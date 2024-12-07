@@ -27,6 +27,7 @@ def generate_post_html(post, template_path):
     post_html = post_template.replace("{{ post_title }}", post.title)
     post_html = post_html.replace("{{ post_content }}", post.html_content)
     post_html = post_html.replace("{{ post_date }}", str(post.post_date))
+    post_html = post_html.replace("{{ post_tags }}", str(post.tags))
     footer = open("html/footer.html", "r")
     post_html = post_html.replace("{{ footer }}", footer.read())
     return post_html
