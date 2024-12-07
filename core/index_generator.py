@@ -10,7 +10,7 @@ def generate_index(posts, output_path, template_path="index.html"):
 
     # Replace the {{ blog_posts }} variable with the list of posts
     blog_posts_html = "\n".join(
-        f'<a href="posts/{os.path.splitext(post.filename)[0]}.html">{post.title}<br>{post.post_date.strftime("%Y-%m-%d %H:%M")}</a><br>'
+        f'<p>{post.post_date.strftime("%Y-%m-%d %H:%M")}<p><a href="posts/{os.path.splitext(post.filename)[0]}.html">{post.title}</a>'
         for post in posts
         if not post.filename.startswith('_')
     )

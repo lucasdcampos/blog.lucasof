@@ -26,6 +26,7 @@ def generate_post_html(post, template_path):
     # Replace the placeholders with the post content
     post_html = post_template.replace("{{ post_title }}", post.title)
     post_html = post_html.replace("{{ post_content }}", post.html_content)
+    post_html = post_html.replace("{{ post_date }}", str(post.post_date))
 
     return post_html
 
