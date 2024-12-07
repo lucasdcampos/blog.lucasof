@@ -27,11 +27,12 @@ def generate_post_html(post, template_path):
     post_html = post_template.replace("{{ post_title }}", post.title)
     post_html = post_html.replace("{{ post_content }}", post.html_content)
     post_html = post_html.replace("{{ post_date }}", str(post.post_date))
-
+    footer = open("html/footer.html", "r")
+    post_html = post_html.replace("{{ footer }}", footer.read())
     return post_html
 
 # Function to process the Markdown files
-def process_markdown_files(input_dir, output_dir, template_path="post_base.html"):
+def process_markdown_files(input_dir, output_dir, template_path):
     if not os.path.exists(input_dir):
         raise FileNotFoundError(f"The directory '{input_dir}' was not found.")
 

@@ -6,7 +6,7 @@ STATIC_DIR = "static/"
 INPUT_DIR = "posts/"
 OUTPUT_DIR = "build/posts/"
 INDEX_OUTPUT_PATH = "build/index.html"
-TEMPLATE_PATH = "post_base.html"
+TEMPLATE_PATH = "html/post_base.html"
 
 def main():
 
@@ -17,7 +17,7 @@ def main():
         print(f"Erro: {e}")
 
     print("Processing markdown files...")
-    posts = process_markdown_files(INPUT_DIR, OUTPUT_DIR)
+    posts = process_markdown_files(INPUT_DIR, OUTPUT_DIR, TEMPLATE_PATH)
     
     print("Generating index.html...")
     generate_index(posts, INDEX_OUTPUT_PATH)

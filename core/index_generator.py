@@ -1,6 +1,6 @@
 import os
 
-def generate_index(posts, output_path, template_path="index.html"):
+def generate_index(posts, output_path, template_path="html/index.html"):
     # Load the content of the index.html template file
     if not os.path.exists(template_path):
         raise FileNotFoundError(f"Template {template_path} not found.")
@@ -16,6 +16,8 @@ def generate_index(posts, output_path, template_path="index.html"):
     )
 
     index_content = index_template.replace("{{ blog_posts }}", blog_posts_html)
+    footer = open("html/footer.html", "r")
+    index_content = index_content.replace("{{ footer }}", footer.read())
 
     # Ensure the output directory exists
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
