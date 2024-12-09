@@ -14,7 +14,7 @@ def main():
     try:
         copy_static_files(STATIC_DIR, "build/")
     except Exception as e:
-        print(f"Erro: {e}")
+        print(f"Error: {e}")
 
     print("Processing markdown files...")
     posts = process_markdown_files(INPUT_DIR, OUTPUT_DIR, TEMPLATE_PATH)
